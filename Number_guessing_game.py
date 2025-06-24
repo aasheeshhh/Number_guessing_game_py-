@@ -23,28 +23,28 @@ H = Hard (You have 5 attempts)
         return
     
     while(count<Max_attempts):
-        player_guess = int(input("Take a Guess\n"))
+        player_guess = int(input("Take a Guess: "))
         count += 1
 
-        if count==Max_attempts:
-            print("Out of Guesses\n")
-            print("Computer selected: ",computer_guess)
-
-            retry = input("Want to play again Y/N\n").upper()
-            if(retry=='Y'):
-                Number_guessing_game()
-            elif(retry=='N'):
-                break
-            else:
-                print("Enter a valid character Y or N\n")
-
-        if(player_guess<computer_guess):
+        if player_guess < computer_guess:
             print("Higher\n")
-        elif(player_guess>computer_guess):
+        elif player_guess > computer_guess:
             print("Lower\n")
         else:
-            print(f"You Won in {count} guesses")
+            print(f"You won in {count} guesses!\n")
             break
+
+    else:
+        print("\nOut of Guesses!")
+        print("Computer selected:", computer_guess)
+
+    retry = input("Want to play again? (Y/N): ").upper()
+    if retry == 'Y':
+        Number_guessing_game()
+    elif retry == 'N':
+        print("Thanks for playing!")
+    else:
+        print("Enter a valid character Y or N.\n")
   
 '''Run the game'''
 Number_guessing_game()
